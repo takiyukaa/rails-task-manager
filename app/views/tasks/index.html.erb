@@ -4,10 +4,17 @@
   <% @tasks.each do |task| %>
   <div class="card my-3">
     <div class="card-body">
-      <% check = task.completed? ? '[X]' : '[  ]' %>
-      <p><%= check %> <%= link_to task.title, task_path(task) %>・<%= link_to task_path(task), method: :delete do %>
-      <i class="far fa-trash-alt"></i>
-      <% end %></p>
+      <% if task.completed? %>
+        <i class="far fa-check-square mx-1"></i>
+      <% else %>
+        <i class="far fa-square"></i>
+      <% end %>
+
+      <%= link_to task.title, task_path(task) %>
+
+      <%= link_to task_path(task), method: :delete do %>
+        <i class="far fa-trash-alt"></i>
+      <% end %>
     </div>
   </div>
   <% end %>
