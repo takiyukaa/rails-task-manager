@@ -1,0 +1,13 @@
+<div class="container">
+  <h1><%= @task.title %></h1>
+  <%= link_to tasks_edit_path(@task) do%>
+  <button type="button" class="btn btn-warning">Edit this Task🖍</button>
+  <% end %>
+
+  <div class="detail">
+    <p><%= @task.details %></p>
+    <% check = @task.completed? ? '[X]' : '[  ]' %>
+    <p><%= check %> Task is completed</p>
+  </div>
+  <%= link_to "back to list", tasks_path %>
+</div>

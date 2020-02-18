@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>My tasks📍</h1>
+
+  <% @tasks.each do |task| %>
+  <div class="card my-3">
+    <div class="card-body">
+      <% check = task.completed? ? '[X]' : '[  ]' %>
+      <p><%= check %> <%= link_to task.title, task_path(task) %>・<%= link_to task_path(task), method: :delete do %>
+      <i class="far fa-trash-alt"></i>
+      <% end %></p>
+    </div>
+  </div>
+  <% end %>
+
+  <%= link_to tasks_new_path do %>
+  <button type="button" class="btn btn-warning"> + Add a new Task</button>
+  <% end %>
+</div>
