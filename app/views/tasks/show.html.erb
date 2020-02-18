@@ -1,13 +1,20 @@
 <div class="container">
-  <h1><%= @task.title %></h1>
-  <%= link_to tasks_edit_path(@task) do%>
-  <button type="button" class="btn btn-warning">Edit this Task🖍</button>
-  <% end %>
+  <div class="header">
+    <h1><%= @task.title %></h1>
+    <%= link_to tasks_edit_path(@task) do%>
+    <button type="button" class="btn btn-warning">Edit this Task🖍</button>
+    <% end %>
+  </div>
 
-  <div class="detail">
-    <p><%= @task.details %></p>
-    <% check = @task.completed? ? '[X]' : '[  ]' %>
-    <p><%= check %> Task is completed</p>
+  <div class="detail mb-3">
+    <div class="card p-2 mb-3">
+      <p><%= @task.details %></p>
+    </div>
+    <% if @task.completed? %>
+      <i class="far fa-check-square mx-1"> Task is completed</i>
+    <% else %>
+      <i class="far fa-square"> Task is not completed</i>
+    <% end %>
   </div>
   <%= link_to "back to list", tasks_path %>
 </div>
